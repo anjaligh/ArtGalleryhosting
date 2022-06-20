@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const PaintingData = require('./src/model/PaintingData');
 const cartData = require('./model/cartModel');
@@ -17,6 +18,7 @@ app.use(cors());
 app.use(bodyparser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('./dist/front-end'));
 
 app.use('/users', userauth);
 
@@ -38,7 +40,7 @@ app.use('/users', userauth);
 // })
 // const upload=multer({storage:storage});
 
-app.get('/mural', (req, res) => {
+app.get('/api/mural', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     PaintingData.find({ category: 'Mural' })
@@ -49,7 +51,7 @@ app.get('/mural', (req, res) => {
 });
 
 
-app.get('/abstract', (req, res) => {
+app.get('/api/abstract', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     PaintingData.find({ category: 'Abstract' })
@@ -59,7 +61,7 @@ app.get('/abstract', (req, res) => {
         });
 });
 
-app.get('/watercolor', (req, res) => {
+app.get('/api/watercolor', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     PaintingData.find({ category: 'Watercolor' })
@@ -69,7 +71,7 @@ app.get('/watercolor', (req, res) => {
         });
 });
 
-app.get('/pastel', (req, res) => {
+app.get('/api/pastel', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     PaintingData.find({ category: 'Pastel' })
@@ -79,7 +81,7 @@ app.get('/pastel', (req, res) => {
         });
 });
 
-app.get('/acrylic', (req, res) => {
+app.get('/api/acrylic', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     PaintingData.find({ category: 'Acrylic' })
@@ -89,7 +91,7 @@ app.get('/acrylic', (req, res) => {
         });
 });
 
-app.get('/charcoal', (req, res) => {
+app.get('/api/charcoal', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     PaintingData.find({ category: 'Charcoal' })
@@ -98,7 +100,7 @@ app.get('/charcoal', (req, res) => {
             res.send(paintings)
         });
 });
-app.get('/getMyPaintings/:usermail',(req, res) => {
+app.get('/api/getMyPaintings/:usermail',(req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     const mail=req.params.usermail
@@ -115,7 +117,7 @@ app.get('/getMyPaintings/:usermail',(req, res) => {
 //     const idValue=req.params.idValue
 //     PaintingData.find({ "_id": idValue })
 // =======
-app.get('/getMyCart/:usermail',(req, res) => {
+app.get('/api/getMyCart/:usermail',(req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     const mail=req.params.usermail
@@ -127,7 +129,7 @@ app.get('/getMyCart/:usermail',(req, res) => {
         });
 });
 
-app.get('/getMyOrders/:usermail',(req, res) => {
+app.get('/api/getMyOrders/:usermail',(req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     const mail=req.params.usermail
@@ -137,7 +139,7 @@ app.get('/getMyOrders/:usermail',(req, res) => {
             res.send(paintings)
         });
 });
-app.get('/getuserprofile/:usermail',(req, res) => {
+app.get('/api/getuserprofile/:usermail',(req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     const mail=req.params.usermail
@@ -149,7 +151,7 @@ app.get('/getuserprofile/:usermail',(req, res) => {
         });
 });
 
-app.get('/deletemycart/:usermail',(req, res) => {
+app.get('/api/deletemycart/:usermail',(req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     const mail=req.params.usermail
@@ -166,7 +168,7 @@ app.get('/deletemycart/:usermail',(req, res) => {
     
 
 });
-app.get('/deletePainting/:paintingname1',(req, res) => {
+app.get('/api/deletePainting/:paintingname1',(req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     // const mail=req.params.usermail
@@ -184,7 +186,7 @@ app.get('/deletePainting/:paintingname1',(req, res) => {
 });
 
 
-app.post('/addwork',checkAuth, function(req,res){
+app.post('/api/addwork',checkAuth, function(req,res){
     res.header('Access-Control-Allow-Origin','*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     console.log('hello backend')
@@ -205,7 +207,7 @@ app.post('/addwork',checkAuth, function(req,res){
     var newPainting=new PaintingData(newWork);
     newPainting.save();
 })
-app.post('/addcart',function(req,res){
+app.post('/api/addcart',function(req,res){
     res.header('Access-Control-Allow-Origin','*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     console.log('hello backend')
@@ -221,7 +223,7 @@ app.post('/addcart',function(req,res){
     var mynewCart=new cartData(newcartdata);
     mynewCart.save();
 })
-app.post('/addorders',function(req,res){
+app.post('/api/addorders',function(req,res){
     res.header('Access-Control-Allow-Origin','*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     console.log('hello backend')
@@ -237,6 +239,11 @@ app.post('/addorders',function(req,res){
     var mynewOrder=new orderData(neworderdata);
     mynewOrder.save();
 })
+
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname + '/dist//front-end/index.html'));
+});
+
 
 app.listen(3000, function () {
     console.log('listening to port 3000')
