@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('./dist/front-end'));
 
-app.use('/users', userauth);
+app.use('http://localhost:3000/users', userauth);
 
 // const storage=multer.diskStorage({
 //     destination:(req,files,cb)=>{
@@ -40,7 +40,7 @@ app.use('/users', userauth);
 // })
 // const upload=multer({storage:storage});
 
-app.get('/api/mural', (req, res) => {
+app.get('/http://localhost:3000/mural', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     PaintingData.find({ category: 'Mural' })
@@ -51,7 +51,7 @@ app.get('/api/mural', (req, res) => {
 });
 
 
-app.get('/api/abstract', (req, res) => {
+app.get('/http://localhost:3000/abstract', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     PaintingData.find({ category: 'Abstract' })
@@ -61,7 +61,7 @@ app.get('/api/abstract', (req, res) => {
         });
 });
 
-app.get('/api/watercolor', (req, res) => {
+app.get('/http://localhost:3000/watercolor', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     PaintingData.find({ category: 'Watercolor' })
@@ -71,7 +71,7 @@ app.get('/api/watercolor', (req, res) => {
         });
 });
 
-app.get('/api/pastel', (req, res) => {
+app.get('/http://localhost:3000/pastel', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     PaintingData.find({ category: 'Pastel' })
@@ -81,7 +81,7 @@ app.get('/api/pastel', (req, res) => {
         });
 });
 
-app.get('/api/acrylic', (req, res) => {
+app.get('/http://localhost:3000/acrylic', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     PaintingData.find({ category: 'Acrylic' })
@@ -91,7 +91,7 @@ app.get('/api/acrylic', (req, res) => {
         });
 });
 
-app.get('/api/charcoal', (req, res) => {
+app.get('/http://localhost:3000/charcoal', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     PaintingData.find({ category: 'Charcoal' })
@@ -100,7 +100,7 @@ app.get('/api/charcoal', (req, res) => {
             res.send(paintings)
         });
 });
-app.get('/api/getMyPaintings/:usermail',(req, res) => {
+app.get('/http://localhost:3000/getMyPaintings/:usermail',(req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     const mail=req.params.usermail
@@ -117,7 +117,7 @@ app.get('/api/getMyPaintings/:usermail',(req, res) => {
 //     const idValue=req.params.idValue
 //     PaintingData.find({ "_id": idValue })
 // =======
-app.get('/api/getMyCart/:usermail',(req, res) => {
+app.get('/http://localhost:3000/getMyCart/:usermail',(req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     const mail=req.params.usermail
@@ -129,7 +129,7 @@ app.get('/api/getMyCart/:usermail',(req, res) => {
         });
 });
 
-app.get('/api/getMyOrders/:usermail',(req, res) => {
+app.get('/http://localhost:3000/getMyOrders/:usermail',(req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     const mail=req.params.usermail
@@ -139,7 +139,7 @@ app.get('/api/getMyOrders/:usermail',(req, res) => {
             res.send(paintings)
         });
 });
-app.get('/api/getuserprofile/:usermail',(req, res) => {
+app.get('/http://localhost:3000/getuserprofile/:usermail',(req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     const mail=req.params.usermail
@@ -151,7 +151,7 @@ app.get('/api/getuserprofile/:usermail',(req, res) => {
         });
 });
 
-app.get('/api/deletemycart/:usermail',(req, res) => {
+app.get('/http://localhost:3000/deletemycart/:usermail',(req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     const mail=req.params.usermail
@@ -168,7 +168,7 @@ app.get('/api/deletemycart/:usermail',(req, res) => {
     
 
 });
-app.get('/api/deletePainting/:paintingname1',(req, res) => {
+app.get('/http://localhost:3000/deletePainting/:paintingname1',(req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     // const mail=req.params.usermail
@@ -186,7 +186,7 @@ app.get('/api/deletePainting/:paintingname1',(req, res) => {
 });
 
 
-app.post('/api/addwork',checkAuth, function(req,res){
+app.post('/http://localhost:3000/addwork',checkAuth, function(req,res){
     res.header('Access-Control-Allow-Origin','*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     console.log('hello backend')
@@ -207,7 +207,7 @@ app.post('/api/addwork',checkAuth, function(req,res){
     var newPainting=new PaintingData(newWork);
     newPainting.save();
 })
-app.post('/api/addcart',function(req,res){
+app.post('/http://localhost:3000/addcart',function(req,res){
     res.header('Access-Control-Allow-Origin','*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     console.log('hello backend')
@@ -223,7 +223,7 @@ app.post('/api/addcart',function(req,res){
     var mynewCart=new cartData(newcartdata);
     mynewCart.save();
 })
-app.post('/api/addorders',function(req,res){
+app.post('/http://localhost:3000/addorders',function(req,res){
     res.header('Access-Control-Allow-Origin','*');
     res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
     console.log('hello backend')
