@@ -1,0 +1,27 @@
+<div class="container1">
+    <h2 class="text-center">My Cart</h2> 
+    <!-- <h6 *ngIf="!purchased" class="emptyNote">Your cart is Empty!!</h6> -->
+    <div class="row">
+
+        <div class="col-md-4" >
+
+            <figure class="card card-product-grid">
+                <div class="img-wrap">
+                    <!-- <span class="badge badge-danger"> NEW </span> -->
+                    <img [src]=image>
+                </div> <!-- img-wrap.// -->
+                <figcaption class="info-wrap">
+                    <div class="fix-height">
+                        <a routerLink="#" class="title">{{name}}</a>
+                        <div class="price-wrap mt-2">
+                            <span class="price">Rs {{price}}</span>
+                            <del class="price-old">Rs 1980</del>
+                        </div> <!-- price-wrap.// -->
+                    </div>
+                    <a type="button"class="btn btn-block btn-primary" style="background-color:#24a0ed;border: 1px solid #24a0ed;" (click)="purchaseAlert()"><h5 style="color:white">Buy</h5></a>
+                </figcaption>
+            </figure>
+        </div> <!-- col.// -->
+    </div>
+</div>
+

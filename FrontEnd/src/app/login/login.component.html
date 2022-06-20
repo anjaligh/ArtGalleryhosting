@@ -1,0 +1,67 @@
+<body>
+    <div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    </div>
+
+    <div class="box-form">
+        <div class="left">
+            <div class="overlay">
+                <h1>Fusion Arts</h1>
+                <p>Earth without art is just “eh”<br>Interactions between the elements and principles <br>of art help
+                    artists to organize sensorially pleasing works of art while also giving viewers a framework
+                    within which to analyze and discuss aesthetic ideas.</p>
+
+            </div>
+        </div>
+
+
+        <div class="right">
+
+            <h5 class="login"><b>Login</b></h5><br>
+
+
+            <p>Don't have an account? <a href="/register">Create Your Account</a> it takes less than a minute</p>
+            <form  class="form_group field" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+<!--             <p>Don't have an account? <a href="/register">Create Your Account</a> it takes less than a minute</p>
+            <form  class="form_group field" [formGroup]="loginForm" (ngSubmit)="onSubmit()"> -->
+                <div class="inputs">
+                    <input id="email1" name="email1" formControlName="email1"   type="email"  placeholder="Enter Your Email">
+                    <span class="text-danger"
+                    *ngIf="(loginForm.controls['email1'].touched||submitted) && loginForm.controls['email1'].errors?.['required']">
+                    Email is required
+                </span>
+                <span class="text-danger"
+                    *ngIf="loginForm.controls['email1'].touched && loginForm.controls['email1'].errors?.['email']">
+                    Enter a valid email address
+                </span>
+            
+                    <input id="password" name="password"  formControlName="password"  type="password" placeholder="Enter Password" required>
+                    <span class="text-danger"
+                    *ngIf="(loginForm.controls['password'].touched||submitted) && loginForm.controls['password'].errors?.['required']">
+                    Password is required
+                </span>
+                <span class="text-danger"
+                *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].errors?.['pattern']">
+                Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                                letter and 1 number
+            </span>
+                
+                </div>
+           
+            <br><br>
+
+           
+
+            <br>
+            <button type="submit">Login</button>
+            </form>
+        </div>
+
+    </div>
+</body>

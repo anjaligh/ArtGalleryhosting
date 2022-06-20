@@ -1,0 +1,56 @@
+<div>
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: rgba(0, 0, 0); width: 100%;" >
+      <div class="container-fluid">
+       
+        <a class="navbar-brand" href="#"> <img src="/assets/logo2.png" alt="" style="width: 70px;height: 80px;"> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" routerLink="" style="color: white;padding-right: 4vw;">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#page1" style="color: white;padding-right: 4vw;">Explore</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#aboutus" *ngIf="!auth.loggedIn()"  style="color: white;padding-right: 4vw;">AboutUs</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" routerLink="contactus" *ngIf="!auth.loggedIn()"  style="color: white;padding-right: 4vw;">ContactUs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/admin/adminprofile" *ngIf="auth.loggedIn() && auth.adminCheck()" style="color: white;padding-right: 4vw;">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/buyer/bprofile" *ngIf="auth.loggedIn() && auth.buyerCheck()" style="color: white;padding-right: 4vw;">View Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/seller/profile" *ngIf="auth.loggedIn() && auth.sellerCheck()" style="color: white;padding-right: 4vw;">View Profile</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" routerLink="/seller/addwork" *ngIf="auth.loggedIn()" style="color: white;">Add Work</a>
+            </li> -->
+            <li class="nav-item">
+              <!-- <a class="nav-link" routerLink="/seller/cart/:id/:name/:price/:dimension/:category/:artist/:image" *ngIf="auth.loggedIn()" style="color: white;padding-right: 4vw;">Cart</a> -->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/" *ngIf="auth.loggedIn()" (click)="logOut()" style="color: white;padding-right: 4vw;">Logout</a>
+            </li>
+            
+           
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="!auth.loggedIn()" routerLink="login" style="color: white;padding-right: 4vw;">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="register" *ngIf="!auth.loggedIn()" style="color: white;padding-right: 4vw;">Register</a>
+            </li>
+           
+          </ul>
+
+          </div>
+        </div>
+    </nav>
+</div>
+

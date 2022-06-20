@@ -1,0 +1,15 @@
+.image{
+    padding: 3%;
+    width: 75%;
+    height: 50%;
+}
+h3{
+    padding: 2%;
+}
+h2{
+    padding: 2%;
+}
+hr{
+    border: 3px solid #a74086;
+    background-color: #a74086;
+  }

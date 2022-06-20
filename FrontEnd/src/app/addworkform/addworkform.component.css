@@ -1,0 +1,18 @@
+.heading{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: xx-large;
+    color :rgb(34, 34, 133);
+}
+hr{
+    color: rgb(24, 24, 104);
+}
+.border{
+    width: 60%;
+    
+    padding:5% ;
+}
+.align{
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}

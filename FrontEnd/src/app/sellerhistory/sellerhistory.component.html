@@ -1,0 +1,55 @@
+<div class="container">
+    <h2 class="text-center" style="margin-top: 30px;">My Paintings</h2>
+    <hr>
+    <div class="border">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let i of myWorks">
+          <figure class="card card-product-grid">
+            <div class="img-wrap">
+              <span class="badge badge-danger"> NEW </span>
+              <img [src]="i.image" />
+            </div>
+            <!-- img-wrap.// -->
+            <figcaption class="info-wrap">
+              <div class="fix-height">
+                <a routerLink="#" class="title">{{ i.paintingname }}</a>
+                <div class="price-wrap mt-2">
+                  <span class="price">Rs {{ i.price }}</span>
+                </div>
+                <!-- price-wrap.// -->
+              </div>
+              <a
+                [routerLink]="[
+                  '/product',
+                  i._id,
+                  i.paintingname,
+                  i.price,
+                  i.dimension,
+                  i.category,
+                  i.artist,
+                  i.image
+                ]"
+                class="btn btn-block btn-primary"
+                >View Details</a
+              >
+            </figcaption>
+          </figure>
+        </div>
+        <!-- col.// -->
+      </div>
+        <!-- <div class="row">
+          <div class="col-md-4" *ngFor="let i of myWorks">
+            <div class="col-sm-6" >
+              <img src="https://www.artzolo.com/sites/default/files/styles/product_full/public/uploads/multi/13125/largest/rajasthan-sagar-palwe.jpg" alt="">
+            </div>
+            <div class="col-sm-6 content">
+              <p class="display-6">{{i.name}}</p>
+              <p> {{i.artist}}</p>
+              <p>{{i.dimension}}</p>
+              <p>{{i.price}}</p>
+            </div>
+          </div>
+          
+        </div>  -->
+      </div>
+</div>

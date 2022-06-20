@@ -1,0 +1,97 @@
+<div class="align">
+  <div class="border">
+      <form [formGroup]="addWorkForm"(ngSubmit)="addWork()">
+          <!-- <p class="heading">Personal Information</p>
+          <hr>
+
+          <div class="mb-3">
+              <label for="full-name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" formControlName="name" name="name" required  >
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="mb-3">
+              <label for="email" class="form-label">Email ID</label>
+              <input type="text" class="form-control" formControlName="email" name="email" required >
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="mb-3">
+              <label for="contact" class="form-label">Contact Number</label>
+              <input type="text" class="form-control" formControlName="contact" name="contact"  required >
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" formControlName="address"  name="address"  required >
+          </div>
+
+          <div class="mb-3">
+            <label for="category" class="form-label">Upload your Image</label>
+            <input type="file" formControlName="artistimage" name="artistimage" class="form-control" accept="image/png, image/gif, image/jpeg">
+          </div> -->
+
+          <p class="heading">Painting Details</p>
+          <hr>
+          <div class="row">
+            <div class="col">
+              <div class="mb-3">
+              <label for="email" class="form-label">Email ID</label>
+              <input type="text" class="form-control" formControlName="email" name="email" required >
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+              <label for="painting-name" class="form-label">Name of Painting</label>
+              <input type="text" class="form-control" formControlName="paintingname"  name="paintingname"  required >
+            </div>
+
+            <div class="mb-3">
+                
+              </div>
+            <div class="row">
+              <div class="col">
+                <div class="mb-3">
+                  <label for="category" class="form-label">Painting Category</label>
+                  <select class="form-select" aria-label="Default select example" formControlName="category"  name="category"  required>
+                    <option selected ></option>
+                    <option value="abstract">Abstract</option>
+                    <option value="Acrylic">Acrylic</option>
+                    <option value="Mural">Mural</option>
+                    <option value="Charcoal">Charcoal</option>
+                    <option value="Pastel">Pastel</option>
+                    <option value="Watercolor">Watercolor</option>
+                  </select>
+                </div>
+            </div>
+
+            <div class="col">
+              <div class="mb-3">
+                <label for="category" class="form-label">Upload your work here</label>
+                <input type="file" formControlName="image" class="form-control" accept="image/png, image/gif, image/jpeg">
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="dimension" class="form-label">Dimension of Painting</label>
+            <input type="text" class="form-control" required formControlName="dimension"  name="dimension"  >
+         </div>
+
+          <div class="mb-3">
+              <label for="price" class="form-label">Expected Price in &#8377; </label>
+              <input type="text" class="form-control" required formControlName="price"  name="price"  >
+          </div>
+
+          <div class="mb-3">
+            <label for="description" class="form-label">Description about Painting</label>
+            <textarea name="description" class="form-control" formControlName="description"  name="description" rows="5"></textarea>
+        </div>
+          <div class="d-flex justify-content-center"><button class="btn btn-success" [disabled]="addWorkForm.invalid">Submit</button></div>
+       </form>
+  </div>
+</div>

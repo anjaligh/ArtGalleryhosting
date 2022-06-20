@@ -1,0 +1,149 @@
+<div class="container1">
+  <!-- ========================= SECTION PAGETOP ========================= -->
+  <section class="section-pagetop bg">
+    <div class="container">
+      <h2 class="title-page">Mural Paintings</h2>
+      <nav>
+        <ol class="breadcrumb text-white">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="#">Categories</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Mural</li>
+        </ol>
+      </nav>
+    </div>
+    <!-- container //  -->
+  </section>
+  <!-- ========================= SECTION INTRO END// ========================= -->
+
+  <!-- ========================= SECTION CONTENT ========================= -->
+  <section class="section-content padding-y">
+    <div class="container">
+      <div class="row">
+        <aside class="col-md-3">
+          <div class="card">
+            <article class="filter-group">
+              <header class="card-header">
+                <h6 class="title" style="color: #e91e63">Categories</h6>
+              </header>
+              <div class="filter-content collapse show" id="collapse_1">
+                <div class="card-body">
+                  <form class="pb-3">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Search"
+                      />
+                      <div class="input-group-append">
+                        <button class="btn btn-light" type="button">
+                          <i class="fa fa-search"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+
+                  <ul class="list-menu">
+                    <li><a routerLink="../abstract">Abstract</a></li>
+                    <li><a routerLink="../acrylic">Arcylic</a></li>
+                    <li><a routerLink="../charcoal">Charcoal</a></li>
+                    <li><a routerLink="../mural">Mural</a></li>
+                    <li><a routerLink="../pastel">Pastel</a></li>
+                    <li><a routerLink="../watercolor">Watercolor</a></li>
+                  </ul>
+                </div>
+                <!-- card-body.// -->
+              </div>
+            </article>
+            <!-- filter-group  .// -->
+
+            <article class="filter-group">
+              <header class="card-header">
+                <h6 class="title" style="color: #e91e63">Price range</h6>
+              </header>
+              <div class="filter-content collapse show" id="collapse_3">
+                <div class="card-body">
+                  <input
+                    type="range"
+                    class="custom-range"
+                    min="0"
+                    max="100"
+                    name=""
+                  />
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label>Min</label>
+                      <input
+                        class="form-control"
+                        placeholder="Rs 0"
+                        type="number"
+                      />
+                    </div>
+                    <div class="form-group text-right col-md-6">
+                      <label>Max</label>
+                      <input
+                        class="form-control"
+                        placeholder="Rs 1,0000"
+                        type="number"
+                      />
+                    </div>
+                  </div>
+                  <button class="btn btn-block btn-primary">Apply</button>
+                </div>
+              </div>
+            </article>
+          </div>
+          <!-- card.// -->
+        </aside>
+        <!-- col.// -->
+        <main class="col-md-9">
+          <header class="border-bottom mb-4 pb-3"></header>
+          <!-- sect-heading -->
+
+          <div class="row">
+            <div class="col-md-4" *ngFor="let i of mural">
+              <figure class="card card-product-grid">
+                <div class="img-wrap">
+                  <!-- <span class="badge badge-danger"> NEW </span> -->
+                  <img [src]="i.image" />
+                </div>
+                <!-- img-wrap.// -->
+                <figcaption class="info-wrap">
+                  <div class="fix-height">
+                    <a routerLink="#" class="title">{{ i.paintingname }}</a>
+                    <div class="price-wrap mt-2">
+                      <span class="price">Rs {{ i.price }}</span>
+                    </div>
+                    <!-- price-wrap.// -->
+                  </div>
+                  <a
+                    [routerLink]="[
+                      '/product',
+                      i._id,
+                      i.paintingname,
+                      i.price,
+                      i.dimension,
+                      i.category,
+                      i.artist,
+                      i.image,
+                      i.description
+                    ]"
+                    class="btn btn-block btn-primary"
+                    >View Details</a
+                  >
+                </figcaption>
+              </figure>
+            </div>
+            <!-- col.// -->
+          </div>
+          <!-- row end.// -->
+        </main>
+        <!-- col.// -->
+      </div>
+    </div>
+    <!-- container .//  -->
+  </section>
+  <!-- ========================= SECTION CONTENT END// ========================= -->
+
+  <!-- ========================= FOOTER ========================= -->
+  <!-- ========================= FOOTER END // ========================= -->
+</div>

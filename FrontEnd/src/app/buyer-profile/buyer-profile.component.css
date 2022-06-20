@@ -1,0 +1,17 @@
+h2{
+    text-align: center;
+    padding-top: 3% ;
+    padding-bottom: 3%;
+  }
+  .responsive {
+  width: 75%;
+  height: auto;
+  border-radius: 50%;
+  }
+  .container-fluid{
+  padding-bottom: 9%;
+  }
+  hr{
+  border: 3px solid #a74086;
+  background-color: #a74086;
+  }
