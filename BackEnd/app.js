@@ -245,6 +245,10 @@ app.get('/*', function(req, res) {
 });
 
 
-app.listen(3000, function () {
-    console.log('listening to port 3000')
+// app.listen(3000, function () {
+//     console.log('listening to port 3000')
+// });
+const PORT=process.env.PORT||3000;
+app.listen(PORT,()=>{
+    console.log(`Our library app is running on port ${PORT}`);
 });
